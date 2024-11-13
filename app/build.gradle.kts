@@ -8,7 +8,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.testprojeect"
+    namespace = "com.example.testproject"
     compileSdk = 35
     buildFeatures { viewBinding = true }
     defaultConfig {

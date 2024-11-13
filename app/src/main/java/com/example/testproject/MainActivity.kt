@@ -1,4 +1,4 @@
-package com.example.testprojeect
+package com.example.testproject
 
 import android.content.res.Resources
 import android.os.Build
@@ -11,16 +11,15 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.core.view.updateLayoutParams
 import androidx.lifecycle.lifecycleScope
-import com.example.testprojeect.databinding.ActivityMainBinding
+import com.example.testproject.databinding.ActivityMainBinding
 import kotlinx.coroutines.launch
 
 class MainActivity : AppCompatActivity() {
-    val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
+    private val binding by lazy { ActivityMainBinding.inflate(layoutInflater) }
     override fun getResources(): Resources {
         val resources = super.getResources()
         val widthPixels = resources.displayMetrics.widthPixels.toFloat()
         val heightPixels = resources.displayMetrics.heightPixels.toFloat()
-        //dp修改方法
         if (widthPixels > heightPixels) {
             if (widthPixels / 1024 * 600 > heightPixels) {
                 resources.displayMetrics.density = heightPixels / 600
@@ -38,7 +37,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
         enableEdgeToEdge()
 //        WindowInsetsControllerCompat(window, binding.root).isAppearanceLightStatusBars = false
-        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { v, insets ->
+        ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main)) { _, insets ->
             val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
             binding.root.updateLayoutParams<FrameLayout.LayoutParams> {
                 topMargin = systemBars.top
