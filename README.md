@@ -13,7 +13,7 @@ buildTypes {
         // ...
     }
 }
-signingConfigs {
+signingConfigs git{
     register("release") {
         enableV1Signing = true
         enableV2Signing = true
